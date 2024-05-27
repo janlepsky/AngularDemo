@@ -12,11 +12,6 @@ ENV MO_GIT_COMMIT_AUTHOR=${MO_GIT_COMMIT_AUTHOR}
 FROM nginxinc/nginx-unprivileged:stable-alpine as production-stage
 COPY --from=build-stage /app/dist/angular-app /usr/share/nginx/html
 
-# Copy the start script into the image
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
-
 EXPOSE 8080
 USER 101
-CMD ["/start.sh"]
-
+CMD /bin/sh -c 'echo "Git Commit Author: ${MO_GIT_COMMIT_AUTHOR}" && nginx -g "daemon off;"'
