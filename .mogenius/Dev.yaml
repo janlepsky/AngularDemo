@@ -1,7 +1,5 @@
-serviceType: GIT_REPOSITORY
-displayName: AngularDemo2
-gitRepository: https://github.com/janlepsky/AngularDemo.git
-gitBranch: Dev
+serviceType: Deployment
+displayName: Example
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
@@ -18,5 +16,4 @@ ports:
     internalPort: 8080
     externalPort: 80
     expose: true
-app: null
 
