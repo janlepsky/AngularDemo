@@ -1,10 +1,10 @@
 serviceType: Deployment
-displayName: angulardem
+displayName: Zackzack
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
   limitCpuCores: 0.3
-  limitMemoryMB: 64
+  limitMemoryMB: 100
   ephemeralStorageMB: 50
   replicaCount: 1
   deploymentStrategy: recreate
