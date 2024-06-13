@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: Zackzack
+displayName: Angular
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
