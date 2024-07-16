@@ -16,6 +16,9 @@ envVars:
   - name: testvariable
     value: "123456"
     type: PLAINTEXT
+  - name: Beispiel
+    value: "XYZABC"
+    type: PLAINTEXT
 ports:
   - portType: HTTPS
     internalPort: 8080
