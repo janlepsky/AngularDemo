@@ -1,7 +1,5 @@
-serviceType: GIT_REPOSITORY
-displayName: AngularDemo
-gitRepository: https://github.com/janlepsky/AngularDemo.git
-gitBranch: main
+serviceType: Deployment
+displayName: Test
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
@@ -13,16 +11,15 @@ k8sSettings:
   imagePullPolicy: IfNotPresent
   probesOn: false
 envVars:
+  - name: Beispiel
+    value: XYZABC
+    type: PLAINTEXT
   - name: testvariable
     value: "123456"
-    type: PLAINTEXT
-  - name: Beispiel
-    value: "XYZABC"
     type: PLAINTEXT
 ports:
   - portType: HTTPS
     internalPort: 8080
     externalPort: 80
     expose: true
-app: null
 
