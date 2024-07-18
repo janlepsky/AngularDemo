@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: angutest
+displayName: DemoApp
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
