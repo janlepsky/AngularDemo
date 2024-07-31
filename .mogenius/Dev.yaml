@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: brokenrepo
+displayName: Frontend-app
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
