@@ -10,7 +10,10 @@ k8sSettings:
   deploymentStrategy: recreate
   imagePullPolicy: IfNotPresent
   probesOn: false
-envVars: []
+envVars:
+  - name: volumeMount-w7wo94ku6hj2alleme73i4f
+    value: pdf-storage:pdfs:/src/storage
+    type: VOLUME_MOUNT
 ports:
   - portType: HTTPS
     internalPort: 8080
