@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: Frontend-app
+displayName: Frontend
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
@@ -10,10 +10,7 @@ k8sSettings:
   deploymentStrategy: recreate
   imagePullPolicy: IfNotPresent
   probesOn: false
-envVars:
-  - name: volumeMount-w7wo94ku6hj2alleme73i4f
-    value: pdf-storage:pdfs:/src/storage
-    type: VOLUME_MOUNT
+envVars: []
 ports:
   - portType: HTTPS
     internalPort: 8080
