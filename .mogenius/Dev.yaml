@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: frontendtest
+displayName: Frontend
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
@@ -8,7 +8,7 @@ k8sSettings:
   ephemeralStorageMB: 50
   replicaCount: 1
   deploymentStrategy: recreate
-  imagePullPolicy: IfNotPresent
+  imagePullPolicy: Always
   probesOn: false
 envVars: []
 ports:
