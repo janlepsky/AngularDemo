@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: my-webapp
+displayName: Frontend-app
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
@@ -8,14 +8,15 @@ k8sSettings:
   ephemeralStorageMB: 50
   replicaCount: 1
   deploymentStrategy: recreate
-  imagePullPolicy: Always
+  imagePullPolicy: IfNotPresent
   probesOn: false
 envVars:
-  - name: secret
-    type: KEY_VAULT
+  - name: volumeMount-w7wo94ku6hj2alleme73i4f
+    value: pdf-storage:pdfs:/src/storage
+    type: VOLUME_MOUNT
 ports:
   - portType: HTTPS
     internalPort: 8080
     externalPort: 80
-    expose: true
+    expose: false
 
