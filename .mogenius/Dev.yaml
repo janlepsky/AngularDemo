@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: Frontend-app
+displayName: testRegistryInternal
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
