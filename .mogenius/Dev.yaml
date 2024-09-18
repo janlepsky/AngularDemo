@@ -10,7 +10,10 @@ k8sSettings:
   deploymentStrategy: recreate
   imagePullPolicy: IfNotPresent
   probesOn: false
-envVars: []
+envVars:
+  - name: hostname
+    value: nginx
+    type: HOSTNAME
 ports:
   - portType: HTTPS
     internalPort: 8080
