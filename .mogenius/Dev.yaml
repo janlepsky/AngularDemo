@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: webapp
+displayName: frontend
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
@@ -7,7 +7,7 @@ k8sSettings:
   limitMemoryMB: 100
   ephemeralStorageMB: 50
   replicaCount: 1
-  deploymentStrategy: recreate
+  deploymentStrategy: rolling
   imagePullPolicy: IfNotPresent
   probesOn: false
 envVars: []
