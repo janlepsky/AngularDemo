@@ -1,9 +1,9 @@
 serviceType: Deployment
-displayName: webapp
+displayName: webapp76543
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
-  limitCpuCores: 1.1
+  limitCpuCores: 0.3
   limitMemoryMB: 50
   ephemeralStorageMB: 50
   replicaCount: 1
