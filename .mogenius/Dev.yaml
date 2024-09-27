@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: repotest
+displayName: Repo
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
