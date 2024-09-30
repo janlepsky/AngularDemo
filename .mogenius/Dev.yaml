@@ -1,14 +1,22 @@
 serviceType: Deployment
-displayName: Repo
+displayName: Frontend-app
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
-  limitCpuCores: 0.3
-  limitMemoryMB: 50
+  limitCpuCores: 1.1
+  limitMemoryMB: 6
   ephemeralStorageMB: 50
-  replicaCount: 1
+  replicaCount: 3
   deploymentStrategy: recreate
   imagePullPolicy: IfNotPresent
-envVars: []
-ports: []
+  probesOn: false
+envVars:
+  - name: volumeMount-w7wo94ku6hj2alleme73i4f
+    value: pdf-storage:pdfs:/src/storage
+    type: VOLUME_MOUNT
+ports:
+  - portType: HTTPS
+    internalPort: 8080
+    externalPort: 80
+    expose: false
 
