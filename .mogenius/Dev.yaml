@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: frontend
+displayName: Frontend
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
