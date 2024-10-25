@@ -9,11 +9,6 @@ k8sSettings:
   replicaCount: 1
   deploymentStrategy: recreate
   imagePullPolicy: IfNotPresent
-  probesOn: false
 envVars: []
-ports:
-  - portType: HTTPS
-    internalPort: 8080
-    externalPort: 80
-    expose: true
+ports: []
 
