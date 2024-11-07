@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: Frontend2
+displayName: angular
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
