@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: Repo
+displayName: Webapp
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
