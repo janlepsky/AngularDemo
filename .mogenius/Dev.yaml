@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: WebAppTest
+displayName: AngularWebApp
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
