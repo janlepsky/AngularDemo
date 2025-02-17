@@ -9,6 +9,12 @@ k8sSettings:
   replicaCount: 1
   deploymentStrategy: recreate
   imagePullPolicy: IfNotPresent
-envVars: []
+envVars:
+  - id: 0c4b7e41-647b-41a1-ae3b-a3cc9f04b439
+    name: MYSQL_PW
+    data:
+      type: KEY_VAULT
+      vaultType: MOGENIUS_VAULT
+    type: KEY_VAULT
 ports: []
 
