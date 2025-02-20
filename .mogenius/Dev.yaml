@@ -1,9 +1,9 @@
 serviceType: Deployment
-displayName: WebApp
+displayName: Frontend
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
-  limitCpuCores: 0.5
+  limitCpuCores: 0.6
   limitMemoryMB: 30
   ephemeralStorageMB: 50
   replicaCount: 1
