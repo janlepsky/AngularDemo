@@ -10,7 +10,7 @@ k8sSettings:
   deploymentStrategy: recreate
   imagePullPolicy: IfNotPresent
 envVars:
-  - id: 9af0f099-bc4b-4d3f-a05d-164a24934ecd
+  - id: fd332daf-f8e5-4b75-b755-fa252eef484e
     name: MYSQL_PASSWORD
     data:
       type: KEY_VAULT
