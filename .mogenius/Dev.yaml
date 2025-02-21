@@ -1,14 +1,20 @@
 serviceType: Deployment
-displayName: Frontedntest
+displayName: Frontend
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
-  limitCpuCores: 0.6
+  limitCpuCores: 0.5
   limitMemoryMB: 30
   ephemeralStorageMB: 50
   replicaCount: 1
   deploymentStrategy: recreate
   imagePullPolicy: IfNotPresent
-envVars: []
+envVars:
+  - id: 0c4b7e41-647b-41a1-ae3b-a3cc9f04b439
+    name: MYSQL_PW
+    data:
+      type: KEY_VAULT
+      vaultType: MOGENIUS_VAULT
+    type: KEY_VAULT
 ports: []
 
