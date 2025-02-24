@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: Frontedntest
+displayName: webapp
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
@@ -9,12 +9,6 @@ k8sSettings:
   replicaCount: 1
   deploymentStrategy: recreate
   imagePullPolicy: IfNotPresent
-envVars:
-  - id: fd332daf-f8e5-4b75-b755-fa252eef484e
-    name: MYSQL_PASSWORD
-    data:
-      type: KEY_VAULT
-      vaultType: MOGENIUS_VAULT
-    type: KEY_VAULT
+envVars: []
 ports: []
 
