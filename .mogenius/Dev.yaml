@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: WebApp
+displayName: Webapp2
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
