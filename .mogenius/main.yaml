@@ -1,5 +1,5 @@
 serviceType: Deployment
-displayName: Test
+displayName: Frontend
 dockerfileName: Dockerfile
 dockerContext: .
 k8sSettings:
@@ -9,17 +9,20 @@ k8sSettings:
   replicaCount: 1
   deploymentStrategy: recreate
   imagePullPolicy: IfNotPresent
-  probesOn: false
 envVars:
-  - name: Beispiel
-    value: XYZABC
-    type: PLAINTEXT
-  - name: testvariable
+  - id: 019b85a7-75b7-4e0b-8907-bc09299f3c0e
+    name: testvariable
+    data:
+      type: PLAINTEXT
+      value: "123456"
     value: "123456"
     type: PLAINTEXT
-ports:
-  - portType: HTTPS
-    internalPort: 8080
-    externalPort: 80
-    expose: true
+  - id: 700adc8c-7d20-48b5-b2b2-e0535116a99b
+    name: Beispiel
+    data:
+      type: PLAINTEXT
+      value: XYZABC
+    value: XYZABC
+    type: PLAINTEXT
+ports: []
 
