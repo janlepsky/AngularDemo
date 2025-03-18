@@ -1,0 +1,63 @@
+name: Build, Package, Release
+'on':
+  release:
+    types:
+      - created
+  push:
+    branches:
+      - Dev
+env:
+  VERSION: null
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Ensure at least one tag exists
+        run: |
+          if [ -z "$(git tag)" ]; then
+            echo "No tags found. You must create at least one tag to use this workflow."
+            exit 1
+          fi
+      - name: Ensure the latest tag is a semantic version
+        id: determine_version
+        run: |
+          VERSION=$(git describe --tags $(git rev-list --tags --max-count=1))
+          if [[ ! "$VERSION" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "The latest tag $VERSION is not a semantic version. Ensure the tag follows semantic versioning (e.g., 1.0.0 or v1.0.0)."
+            exit 1
+          fi
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "Determined version: $VERSION"
+      - id: containerRegistryLogin
+        name: Login to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ vars.MO_REGISTRY_AUTH_URL__DEV }}
+          username: ${{ vars.MO_REGISTRY_USER__DEV }}
+          password: ${{ secrets.MO_REGISTRY_PAT__DEV }}
+      - name: Build image
+        run: |
+          docker build -f ${{ vars.MO_DOCKERFILE__DEV }} ${{vars.MO_DOCKER_ARGS__DEV}} -t ${{ vars.MO_IMAGE_NAME__DEV }}:${{ env.VERSION }} -t ${{ vars.MO_IMAGE_NAME__DEV }}:latest ${{vars.MO_DOCKERCONTEXT__DEV}}
+      - name: Push image
+        run: |
+          docker push ${{ vars.MO_IMAGE_NAME__DEV }}:${{ env.VERSION }}
+          docker push ${{ vars.MO_IMAGE_NAME__DEV }}:latest
+      - id: releaseWithMogenius
+        name: Release with mogenius
+        uses: mogenius/mogenius-release-action@v1
+        with:
+          dev: true
+          image: ${{ vars.MO_IMAGE_NAME__DEV }}:${{ env.VERSION }}
+          kind: ${{ vars.MO_KIND__DEV }}
+          namespace: ${{ vars.MO_NAMESPACE_NAME__DEV }}
+          resourceName: ${{ vars.MO_RESOURCE_NAME__DEV }}
+          containerName: ${{ vars.MO_CONTAINER_NAME__DEV }}
+          keyKind: ${{ vars.MO_API_KIND__DEV }}
+          token: ${{ secrets.MO_API_TOKEN__DEV }}
